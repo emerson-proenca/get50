@@ -1,0 +1,60 @@
+{
+  "sql": {
+    "aliases": ["sql", "cs50sql"],
+    "default": {
+      "year": "2024",
+      "season": "x",
+      "type": "psets",
+      "format": ".zip"
+    },
+    "2023": {
+      "fall": {
+        "ao": "lightspeed"
+      },
+      "x": {
+        "project": ["project", "sample-project"],
+        "psets": {
+          "0": ["cyberchase", "normals", "players", "views"],
+          "1": ["dese", "moneyball", "packages"],
+          "3": ["dont-panic", "meteorites"],
+          "4": ["bnb", "census", "private"],
+          "5": ["harvard"],
+          "6": ["dont-panic-java", "dont-panic-python"]
+        }
+      }
+    },
+    "2024": {
+      "fall": {
+        "ao": "lightspeed"
+      },
+      "spring": {
+        "ao": "lightspeed"
+      },
+      "x": {
+        "project": ["project", "sample-project"],
+        "psets": {
+          "0": ["cyberchase", "normals", "players", "views"],
+          "1": ["dese", "moneyball", "packages"],
+          "3": ["dont-panic", "meteorites"],
+          "4": ["bnb", "census", "private"],
+          "5": ["harvard", "snap"],
+          "6": ["deep", "dont-panic-java", "dont-panic-python"]
+        }
+      }
+    },
+    "2025": {
+      "fall": {
+        "ao": "lightspeed"
+      },
+      "spring": {
+        "psets": {
+          "0": ["longlist"],
+          "1": ["longlist-part-2"],
+          "3": ["ontime"],
+          "4": ["chigago"],
+          "5": ["chicago-optimized"]
+        }
+      }
+    }
+  }
+}

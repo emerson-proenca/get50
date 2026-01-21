@@ -1,45 +1,66 @@
-import subprocess
+import json
+from typing import Optional
 
 import typer
 
-app = typer.Typer()
+from get50.utils import check_updates, environment, out, processes, show, validate
+
+app = typer.Typer(rich_markup_mode="rich")
+
+# Load JSON data
+with open("src/get50/data.json", "r") as f:
+    DATA = json.load(f)
+
+
+def run() -> None:
+    # Main entry point, if anything fails show Typer error, fallback to out()
+    check_updates()
+    try:
+        app()
+    except typer.BadParameter as e:
+        raise e
+    except Exception as e:
+        out(str(e), type="ERROR")
 
 
 @app.command()
-def download(course: str, week: str, pset: str):
-    """_summary_
+def download(
+    course: str = typer.Argument(help="Course name (e.g., sql)"),
+    week: str = typer.Argument(help="Week number"),
+    file: str = typer.Argument(help="Problem set name"),
+    year: Optional[str] = typer.Option(None, "--year", "-y", help="Academic year"),
+    season: Optional[str] = typer.Option(None, "--season", "-s", help="Course season"),
+    type: Optional[str] = typer.Option(None, "--type", "-t", help="Assignment type"),
+    format: Optional[str] = typer.Option(None, "--format", "-f", help="File format"),
+) -> None:
+    """
+    Downloads and extracts distribution code for a specific CS50 course problem.
+
+    This command validates the requested course structure against the local data registry,
+    verifies the local environment to prevent overwriting, and executes the system
+    processes (wget, unzip) required to set up the problem directory.
 
     Args:
-        course (str): _description_
-        week (str): _description_
-        pset (str): _description_
-
-    Raises:
-        typer.Exit: _description_
+        course (str): The identifier for the course (e.g., 'sql', 'python').
+        week (str): The specific week or module number of the course.
+        file (str): The name of the problem set or project to download.
+        year (Optional[str]): The academic year. Defaults to the course's default year in data.json.
+        season (Optional[str]): The course season (e.g., 'fall', 'spring', 'x'). Defaults to course default.
+        type (Optional[str]): The assignment type ('pset' or 'project'). Defaults to 'pset'.
+        format (Optional[str]): The file extension to download. Defaults to '.zip'.
     """
-    week_num = week.replace("week", "")
-    url = f"https://cdn.cs50.net/2026/x/psets/{week_num}/{pset}.zip"
-    zip_file = f"{pset}.zip"
+    # Validate and get full metadata
+    meta = validate(course, week, file, year, season, type, format, data=DATA)
 
-    typer.echo(f"🚀 Fetching {pset} from {course}...")
+    # Check local environment
+    environment(file)
 
-    try:
-        subprocess.run(["wget", url], check=True)
-        subprocess.run(["unzip", zip_file], check=True)
-        subprocess.run(["rm", zip_file], check=True)
+    # Run subprocesses
+    processes(meta)
 
-        typer.secho(
-            f"✅ Success! Problem set '{pset}' is ready.", fg=typer.colors.GREEN
-        )
-        typer.echo(f"Type 'cd {pset}' to begin.")
-
-    except subprocess.CalledProcessError as e:
-        typer.secho(
-            f"❌ Error: Could not download the problem set. error: {e}",
-            fg=typer.colors.RED,
-        )
-        raise typer.Exit(code=1)
+    # Show result
+    show(file)
 
 
 if __name__ == "__main__":
-    app()
+    run()
