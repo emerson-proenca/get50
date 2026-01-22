@@ -4,7 +4,7 @@ import os
 import subprocess
 import time
 import urllib.request
-from importlib.metadata import PackageNotFoundError, version
+from importlib.metadata import version
 from pathlib import Path
 from typing import Literal
 
@@ -16,57 +16,19 @@ console = Console()
 
 
 def validate(
-    course: str,
-    week: str,
     problem: str,
     year: str | None,
-    season: str | None,
-    p_type: str | None,
-    format: str | None,
     data: dict,
-) -> dict[str, str]:
-    # Resolve Course (Root Level)
-    course_id = course.lower()
-    course_node = resolve(course_id, data, "Course")
-
-    # Resolve Defaults
-    res_year = year or course_node["default"]["year"]
-    res_season = season or course_node["default"]["season"]
-    res_type = p_type or course_node["default"]["type"]
-    res_format = format or course_node["default"]["format"]
-
-    # Walk the Tree (Year -> Season -> Type)
-    year_node = resolve(res_year, course_node, "Year", context=course_id)
-    season_node = resolve(
-        res_season, year_node, "Season", context=f"{course_id} {res_year}"
-    )
-    type_node = resolve(
-        res_type, season_node, "Type", context=f"{course_id} {res_year} {res_season}"
-    )
-
-    # Final Leaf Check (Week & Problem)
-    if res_type == "psets":
-        problem_list = resolve(
-            week, type_node, "Week", context=f"{res_type} {res_year}"
-        )
-    else:
-        # Projects are usually a direct list
-        problem_list = type_node
-
-    # Problem check (Searching in a list, not a dict)
-    if problem not in problem_list:
-        suggestion = suggest(problem, problem_list)
-        out(f"Problem '{problem}' not found.{suggestion}", type="ERROR")
-        raise typer.Exit(1)
+) -> dict:
+    problem_node = resolve(problem, data, "Problem")
+    selected_year = year or problem_node.get("d")
+    year_data = resolve(selected_year, problem_node, "Year", context=problem)
 
     return {
-        "course": course_id,
-        "year": res_year,
-        "season": res_season,
-        "type": res_type,
-        "week": week,
         "problem": problem,
-        "format": res_format,
+        "year": selected_year,
+        "commands": year_data["c"],
+        "slug": year_data["e"],
     }
 
 
@@ -76,24 +38,47 @@ def environment(problem: str) -> None:
         raise typer.Exit(code=1)
 
 
-def processes(meta: dict[str, str]) -> None:
-    BASE_URL = "https://cdn.cs50.net"
-    week_part = f"/{meta['week']}" if meta["type"] == "psets" else ""
+def processes(meta: dict, dry_run: bool = False) -> None:
+    commands = meta["commands"]
 
-    url = f"{BASE_URL}/{meta['course']}/{meta['year']}/{meta['season']}/{meta['type']}{week_part}/{meta['problem']}{meta['format']}"
-    zip_file = f"{meta['problem']}{meta['format']}"
+    # Case A: "c" is a String (get/unzip/rm)
+    if isinstance(commands, str):
+        url = f"https://cdn.cs50.net/{commands}"
+        filename = url.split("/")[-1]
+        cmds = [f"wget {url}", f"unzip {filename}", f"rm {filename}"]
+    else:
+        cmds = commands
 
-    try:
-        subprocess.run(["wget", url], check=True)
-        subprocess.run(["unzip", zip_file], check=True)
-        subprocess.run(["rm", zip_file], check=True)
-
-    except subprocess.CalledProcessError:
+    if dry_run:
         out(
-            "Failed to download or extract distribution code.",
-            type="ERROR",
+            "[bold]Dry Run:[/bold] The following commands WOULD be executed:",
+            type="WARNING",
         )
-        raise typer.Exit(1)
+        for cmd in cmds:
+            out(f"  [bold cyan]>[/bold cyan] {cmd}", type="WARNING")
+        return
+
+    _execute_shell_list(cmds)
+
+
+def _execute_shell_list(commands: list[str]) -> None:
+    for cmd in commands:
+        try:
+            # Handle 'cd' manually because subprocess.run happens in a subshell
+            if cmd.startswith("cd "):
+                path = cmd.replace("cd ", "").strip()
+                os.chdir(path)
+                continue
+
+            # Execute the raw command
+            subprocess.run(cmd, shell=True, check=True)
+
+        except subprocess.CalledProcessError:
+            out(f"Failed to execute command: {cmd}", type="ERROR")
+            raise typer.Exit(1)
+        except FileNotFoundError as e:
+            out(f"Path not found: {e}", type="ERROR")
+            raise typer.Exit(1)
 
 
 def show(problem: str) -> None:
@@ -149,47 +134,57 @@ def resolve(key: str, target: dict, label: str, context: str = ""):
     if key in target:
         return target[key]
 
-    # Generate suggestion from the available keys in this specific level
+    # Suggester handles the fuzzy matching
     possibilities = list(target.keys())
     suggestion = suggest(key, possibilities)
 
-    location = f" in {context}" if context else ""
-    out(f"{label} '{key}' not found{location}.{suggestion}", type="ERROR")
+    ctx_msg = f" for '{context}'" if context else ""
+    out(
+        f"{label} [bold red]'{key}'[/bold red] not found{ctx_msg}.{suggestion}",
+        type="ERROR",
+    )
     raise typer.Exit(1)
 
 
-def check_updates():
-    # Checks PyPI for a newer version once every 24 hours
+def check_updates() -> None:
     PACKAGE_NAME = "get50"
+    BASE_DIR = Path(__file__).resolve().parent
+    LOCAL_DATA = BASE_DIR / "data.json"
     CACHE_FILE = Path.home() / ".get50_update_check"
-    ONE_DAY = 24 * 60 * 60
 
-    if CACHE_FILE.exists():
-        last_check = CACHE_FILE.stat().st_mtime
-        if (time.time() - last_check) < ONE_DAY:
-            return
+    DATA_URL = (
+        "https://raw.githubusercontent.com/YOUR_USER/get50/main/src/get50/data.json"
+    )
+    PYPI_URL = f"https://pypi.org/pypi/{PACKAGE_NAME}/json"
+    ONE_DAY = 24 * 60 * 60
+    TIMEOUT = 3
+
+    # Skip if checked recently
+    if CACHE_FILE.exists() and (time.time() - CACHE_FILE.stat().st_mtime) < ONE_DAY:
+        return
 
     try:
+        # Silent Data Update (GitHub)
+        with urllib.request.urlopen(DATA_URL, timeout=TIMEOUT) as response:
+            new_data = json.loads(response.read().decode())
+            with open(LOCAL_DATA, "w") as f:
+                json.dump(new_data, f)
+
+        # Loud Pip Update (PyPI)
         current_version = version(PACKAGE_NAME)
+        with urllib.request.urlopen(PYPI_URL, timeout=TIMEOUT) as response:
+            pypi_data = json.load(response)
+            latest_version = pypi_data["info"]["version"]
 
-        # Fetch latest version from PyPI
-        TIMEOUT = 3
-        url = f"https://pypi.org/pypi/{PACKAGE_NAME}/json"
-        with urllib.request.urlopen(url, timeout=TIMEOUT) as response:
-            data = json.load(response)
-            latest_version = data["info"]["version"]
-
-        # Compare and notify
         if latest_version != current_version:
             out(
-                f"New version available: [bold]{latest_version}[/bold] (You have {current_version})\nRun [bold cyan]pip install -U {PACKAGE_NAME}[/bold cyan] to update.",
+                f"New version available: [bold]{latest_version}[/bold] (You have {current_version})\n"
+                f"Run [bold cyan]pip install -U {PACKAGE_NAME}[/bold cyan] to update logic.",
                 type="WARNING",
             )
-
-        # Update cache timestamp even if no update is found
         CACHE_FILE.touch()
 
-    except (PackageNotFoundError, Exception):
+    except Exception:
         pass
 
 
@@ -205,3 +200,13 @@ def load(file: str = "data.json") -> dict:
 
     with open(DATA_PATH, "r") as f:
         return json.load(f)
+
+
+def get_cs50_slug(problem_name: str, data: dict) -> str:
+    problem_data = validate(problem_name, None, data)
+    parts = problem_data["slug"].split("/")
+    course = parts[0]
+    year = parts[1]
+    name = parts[-1]
+
+    return f"cs50/problems/{year}/{course}/{name}"

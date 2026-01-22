@@ -2,7 +2,17 @@ from typing import Optional
 
 import typer
 
-from get50.utils import check_updates, environment, load, out, processes, show, validate
+from get50.utils import (
+    _execute_shell_list,
+    check_updates,
+    environment,
+    get_cs50_slug,
+    load,
+    out,
+    processes,
+    show,
+    validate,
+)
 
 app = typer.Typer(rich_markup_mode="rich")
 
@@ -19,14 +29,30 @@ def run() -> None:
 
 
 @app.command()
+def check(problem: str) -> None:
+    data = load()
+    slug = get_cs50_slug(problem, data)
+
+    out(f"Running check50 for [bold]{problem}[/bold]...", type="WARNING")
+    _execute_shell_list([f"check50 {slug}"])
+
+
+@app.command()
+def submit(problem: str) -> None:
+    data = load()
+    slug = get_cs50_slug(problem, data)
+
+    out(f"Submitting [bold]{problem}[/bold]...", type="WARNING")
+    _execute_shell_list([f"submit50 {slug}"])
+
+
+@app.command()
 def download(
-    course: str = typer.Argument(help="Course name (e.g., sql)"),
-    week: str = typer.Argument(help="Week number"),
-    file: str = typer.Argument(help="Problem set name"),
+    problem: str = typer.Argument(help="Problem set name"),
     year: Optional[str] = typer.Option(None, "--year", "-y", help="Academic year"),
-    season: Optional[str] = typer.Option(None, "--season", "-s", help="Course season"),
-    type: Optional[str] = typer.Option(None, "--type", "-t", help="Assignment type"),
-    format: Optional[str] = typer.Option(None, "--format", "-f", help="File format"),
+    check: Optional[str] = typer.Option(None, "--check", "-c", help="Check problem"),
+    submit: Optional[str] = typer.Option(None, "--submit", "-s", help="Submit problem"),
+    dry_run: bool = typer.Option(False, "--dry-run", help=""),
 ) -> None:
     """
     Downloads and extracts distribution code for a specific CS50 course problem.
@@ -36,26 +62,21 @@ def download(
     processes (wget, unzip) required to set up the problem directory.
 
     Args:
-        course (str): The identifier for the course (e.g., 'sql', 'python').
-        week (str): The specific week or module number of the course.
-        file (str): The name of the problem set or project to download.
+        problem (str): The name of the problem set or project to download.
         year (Optional[str]): The academic year. Defaults to the course's default year in data.json.
-        season (Optional[str]): The course season (e.g., 'fall', 'spring', 'x'). Defaults to course default.
-        type (Optional[str]): The assignment type ('pset' or 'project'). Defaults to 'pset'.
-        format (Optional[str]): The file extension to download. Defaults to '.zip'.
     """
     # Validate and get full metadata
-    DATA = load()
-    meta = validate(course, week, file, year, season, type, format, data=DATA)
+    data = load()
+    meta = validate(problem, year, data=data)
 
     # Check local environment
-    environment(file)
+    environment(problem)
 
     # Run subprocesses
-    processes(meta)
+    processes(meta, dry_run=dry_run)
 
     # Show result
-    show(file)
+    show(problem)
 
 
 if __name__ == "__main__":

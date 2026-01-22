@@ -1,60 +1,1147 @@
 {
-  "sql": {
-    "aliases": ["sql", "cs50sql"],
-    "default": {
-      "year": "2024",
-      "season": "x",
-      "type": "psets",
-      "format": ".zip"
-    },
-    "2023": {
-      "fall": {
-        "ao": "lightspeed"
-      },
-      "x": {
-        "project": ["project", "sample-project"],
-        "psets": {
-          "0": ["cyberchase", "normals", "players", "views"],
-          "1": ["dese", "moneyball", "packages"],
-          "3": ["dont-panic", "meteorites"],
-          "4": ["bnb", "census", "private"],
-          "5": ["harvard"],
-          "6": ["dont-panic-java", "dont-panic-python"]
-        }
-      }
-    },
-    "2024": {
-      "fall": {
-        "ao": "lightspeed"
-      },
-      "spring": {
-        "ao": "lightspeed"
-      },
-      "x": {
-        "project": ["project", "sample-project"],
-        "psets": {
-          "0": ["cyberchase", "normals", "players", "views"],
-          "1": ["dese", "moneyball", "packages"],
-          "3": ["dont-panic", "meteorites"],
-          "4": ["bnb", "census", "private"],
-          "5": ["harvard", "snap"],
-          "6": ["deep", "dont-panic-java", "dont-panic-python"]
-        }
-      }
+  "world": {
+    "d": "2026",
+    "2026": {
+      "c": ["mkdir world", "cd world", "code hello.c", "ls"],
+      "e": "x/2026/psets/1/world"
     },
     "2025": {
-      "fall": {
-        "ao": "lightspeed"
-      },
-      "spring": {
-        "psets": {
-          "0": ["longlist"],
-          "1": ["longlist-part-2"],
-          "3": ["ontime"],
-          "4": ["chigago"],
-          "5": ["chicago-optimized"]
-        }
-      }
+      "c": ["mkdir world", "cd world", "code hello.c", "ls"],
+      "e": "x/2025/psets/1/world"
+    },
+    "2024": {
+      "c": ["mkdir world", "cd world", "code hello.c", "ls"],
+      "e": "x/2024/psets/1/world"
+    }
+  },
+  "me": {
+    "d": "2026",
+    "2026": {
+      "c": ["mkdir me", "cd me", "code hello.c"],
+      "e": "x/2026/psets/1/me"
+    },
+    "2025": {
+      "c": ["mkdir me", "cd me", "code hello.c"],
+      "e": "x/2025/psets/1/me"
+    },
+    "2024": {
+      "c": ["mkdir me", "cd me", "code hello.c"],
+      "e": "x/2024/psets/1/me"
+    }
+  },
+  "sort": {
+    "d": "2026",
+    "2026": {
+      "c": "2026/x/psets/3/sort.zip",
+      "e": "x/2026/psets/3/sort"
+    },
+    "2025": {
+      "c": "2024/fall/psets/3/sort.zip",
+      "e": "x/2025/psets/3/sort"
+    },
+    "2024": {
+      "c": "2023/fall/psets/3/sort.zip",
+      "e": "x/2024/psets/3/sort"
+    }
+  },
+  "plurality": {
+    "d": "2026",
+    "2026": {
+      "c": "2026/x/psets/3/plurality.zip",
+      "e": "x/2026/psets/3/plurality"
+    },
+    "2025": {
+      "c": "2024/fall/psets/3/plurality.zip",
+      "e": "x/2025/psets/3/plurality"
+    },
+    "2024": {
+      "c": "2023/fall/psets/3/plurality.zip",
+      "e": "x/2024/psets/3/plurality"
+    },
+    "2023": {
+      "c": "2022/fall/psets/3/plurality.zip",
+      "e": "x/2023/psets/3/plurality"
+    },
+    "2022": {
+      "c": "2021/fall/psets/3/plurality.zip",
+      "e": "x/2022/psets/3/plurality"
+    },
+    "2021": {
+      "c": [
+        "cd ~",
+        "mkdir pset3",
+        "cd pset3",
+        "mkdir plurality",
+        "cd plurality",
+        "2020/fall/psets/3/plurality/plurality.c",
+        "ls"
+      ],
+      "e": "x/2021/psets/3/plurality"
+    }
+  },
+  "runoff": {
+    "d": "2026",
+    "2026": {
+      "c": "2026/x/psets/3/runoff.zip",
+      "e": "x/2026/psets/3/runoff"
+    },
+    "2025": {
+      "c": "2024/fall/psets/3/runoff.zip",
+      "e": "x/2025/psets/3/runoff"
+    },
+    "2024": {
+      "c": "2023/fall/psets/3/runoff.zip",
+      "e": "x/2024/psets/3/runoff"
+    },
+    "2023": {
+      "c": "2022/fall/psets/3/runoff.zip",
+      "e": "x/2023/psets/3/runoff"
+    },
+    "2022": {
+      "c": "2021/fall/psets/3/runoff.zip",
+      "e": "x/2022/psets/3/runoff"
+    },
+    "2021": {
+      "c": [
+        "mkdir runoff",
+        "cd runoff",
+        "2020/fall/psets/3/runoff/runoff.c",
+        "ls"
+      ],
+      "e": "x/2021/psets/3/runoff"
+    }
+  },
+  "tideman": {
+    "d": "2026",
+    "2026": {
+      "c": "2026/x/psets/3/tideman.zip",
+      "e": "x/2026/psets/3/tideman"
+    },
+    "2025": {
+      "c": "2024/fall/psets/3/tideman.zip",
+      "e": "x/2025/psets/3/tideman"
+    },
+    "2024": {
+      "c": "2023/fall/psets/3/tideman.zip",
+      "e": "x/2024/psets/3/tideman"
+    },
+    "2023": {
+      "c": "2022/fall/psets/3/tideman.zip",
+      "e": "x/2023/psets/3/tideman"
+    },
+    "2022": {
+      "c": "2021/fall/psets/3/tideman.zip",
+      "e": "x/2022/psets/3/tideman"
+    },
+    "2021": {
+      "c": [
+        "mkdir tideman",
+        "cd tideman",
+        "2020/fall/psets/3/tideman/tideman.c",
+        "ls"
+      ],
+      "e": "x/2021/psets/3/tideman"
+    }
+  },
+  "volume": {
+    "d": "2026",
+    "2026": {
+      "c": "2026/x/psets/4/volume.zip",
+      "e": "x/2026/psets/4/volume"
+    },
+    "2025": {
+      "c": "2024/fall/psets/4/volume.zip",
+      "e": "x/2025/psets/4/volume"
+    },
+    "2024": {
+      "c": "2023/fall/psets/4/volume.zip",
+      "e": "x/2024/psets/4/volume"
+    }
+  },
+  "filter/less": {
+    "d": "2026",
+    "2026": {
+      "c": "2026/x/psets/4/filter-less.zip",
+      "e": "x/2026/psets/4/filter/less"
+    },
+    "2025": {
+      "c": "2024/fall/psets/4/filter-less.zip",
+      "e": "x/2025/psets/4/filter/less"
+    },
+    "2024": {
+      "c": "2023/fall/psets/4/filter-less.zip",
+      "e": "x/2024/psets/4/filter/less"
+    },
+    "2023": {
+      "c": "2022/fall/psets/4/filter-less.zip",
+      "e": "x/2023/psets/4/filter/less"
+    },
+    "2022": {
+      "c": "2021/fall/psets/4/filter-less.zip",
+      "e": "x/2022/psets/4/filter/less"
+    },
+    "2021": {
+      "c": [
+        "cd ~",
+        "mkdir pset4",
+        "cd pset4",
+        "2020/fall/psets/4/filter/less/filter.zip",
+        "unzip filter.zip",
+        "rm filter.zip",
+
+        "cd filter",
+        "ls"
+      ],
+      "e": "x/2021/psets/4/filter/less"
+    }
+  },
+  "filter/more": {
+    "d": "2026",
+    "2026": {
+      "c": "2026/x/psets/4/filter-more.zip",
+      "e": "x/2026/psets/4/filter/more"
+    },
+    "2025": {
+      "c": "2024/fall/psets/4/filter-more.zip",
+      "e": "x/2025/psets/4/filter/more"
+    },
+    "2024": {
+      "c": "2023/fall/psets/4/filter-more.zip",
+      "e": "x/2024/psets/4/filter/more"
+    },
+    "2023": {
+      "c": "2022/fall/psets/4/filter-more.zip",
+      "e": "x/2023/psets/4/filter/more"
+    },
+    "2022": {
+      "c": "2021/fall/psets/4/filter-more.zip",
+      "e": "x/2022/psets/4/filter/more"
+    },
+    "2021": {
+      "c": [
+        "cd ~",
+        "mkdir pset4",
+        "cd pset4",
+        "2020/fall/psets/4/filter/more/filter.zip",
+        "unzip filter.zip",
+        "rm filter.zip",
+
+        "cd filter",
+        "ls"
+      ],
+      "e": "x/2021/psets/4/filter/more"
+    }
+  },
+  "recover": {
+    "d": "2026",
+    "2026": {
+      "c": "2026/x/psets/4/recover.zip",
+      "e": "x/2026/psets/4/recover"
+    },
+    "2025": {
+      "c": "2025/x/psets/4/recover.zip",
+      "e": "x/2025/psets/4/recover"
+    },
+    "2024": {
+      "c": "2023/fall/psets/4/recover.zip",
+      "e": "x/2024/psets/4/recover"
+    },
+    "2023": {
+      "c": "2022/fall/psets/4/recover.zip",
+      "e": "x/2023/psets/4/recover"
+    },
+    "2022": {
+      "c": "2021/fall/psets/4/recover.zip",
+      "e": "x/2022/psets/4/recover"
+    },
+    "2021": {
+      "c": "2020/fall/psets/4/recover/recover.zip",
+      "e": "x/2021/psets/4/recover"
+    }
+  },
+  "inheritance": {
+    "d": "2026",
+    "2026": {
+      "c": "2026/x/psets/5/inheritance.zip",
+      "e": "x/2026/psets/5/inheritance"
+    },
+    "2025": {
+      "c": "2024/fall/psets/5/inheritance.zip",
+      "e": "x/2025/psets/5/inheritance"
+    },
+    "2024": {
+      "c": "2023/fall/psets/5/inheritance.zip",
+      "e": "x/2024/psets/5/inheritance"
+    }
+  },
+  "speller": {
+    "d": "2026",
+    "2026": {
+      "c": "2026/x/psets/5/speller.zip",
+      "e": "x/2026/psets/5/speller"
+    },
+    "2025": {
+      "c": "2024/fall/psets/5/speller.zip",
+      "e": "x/2025/psets/5/speller"
+    },
+    "2024": {
+      "c": "2023/fall/psets/5/speller.zip",
+      "e": "x/2024/psets/5/speller"
+    },
+    "2023": {
+      "c": "2022/fall/psets/5/speller.zip",
+      "e": "x/2023/psets/5/speller"
+    },
+    "2022": {
+      "c": "2021/fall/psets/5/speller.zip",
+      "e": "x/2022/psets/5/speller"
+    },
+    "2021": {
+      "c": [
+        "cd ~/",
+        "mkdir pset5",
+        "cd pset5",
+        "2021/spring/psets/5/speller/speller.zip",
+        "unzip speller.zip",
+        "rm speller.zip",
+
+        "cd speller",
+        "ls"
+      ],
+      "e": "x/2021/psets/5/speller"
+    }
+  },
+  "dna": {
+    "d": "2026",
+    "2026": {
+      "c": "2026/x/psets/6/dna.zip",
+      "e": "x/2026/psets/6/dna"
+    },
+    "2025": {
+      "c": "2024/fall/psets/6/dna.zip",
+      "e": "x/2025/psets/6/dna"
+    },
+    "2024": {
+      "c": "2023/fall/psets/6/dna.zip",
+      "e": "x/2024/psets/6/dna"
+    },
+    "2023": {
+      "c": "2022/fall/psets/6/dna.zip",
+      "e": "x/2023/psets/6/dna"
+    },
+    "2022": {
+      "c": "2021/fall/psets/6/dna.zip",
+      "e": "x/2022/psets/6/dna"
+    },
+    "2021": {
+      "c": "2020/fall/psets/6/dna/dna.zip",
+      "e": "x/2021/psets/6/dna"
+    }
+  },
+  "songs": {
+    "d": "2026",
+    "2026": {
+      "c": "2026/x/psets/7/songs.zip",
+      "e": "x/2026/psets/7/songs"
+    },
+    "2025": {
+      "c": "2024/fall/psets/7/songs.zip",
+      "e": "x/2025/psets/7/songs"
+    },
+    "2024": {
+      "c": "2023/fall/psets/7/songs.zip",
+      "e": "x/2024/psets/7/songs"
+    }
+  },
+  "movies": {
+    "d": "2026",
+    "2026": {
+      "c": "2026/x/psets/7/movies.zip",
+      "e": "x/2026/psets/7/movies"
+    },
+    "2025": {
+      "c": "2024/fall/psets/7/movies.zip",
+      "e": "x/2025/psets/7/movies"
+    },
+    "2024": {
+      "c": "2023/fall/psets/7/movies.zip",
+      "e": "x/2024/psets/7/movies"
+    },
+    "2023": {
+      "c": "2022/fall/psets/7/movies.zip",
+      "e": "x/2023/psets/7/movies"
+    },
+    "2022": {
+      "c": "2021/fall/psets/7/movies.zip",
+      "e": "x/2022/psets/7/movies"
+    },
+    "2021": {
+      "c": [
+        "cd ~",
+        "mkdir pset7",
+        "cd pset7",
+        "2020/fall/psets/7/movies/movies.zip",
+        "unzip movies.zip",
+        "rm movies.zip",
+
+        "cd movies",
+        "ls"
+      ],
+      "e": "x/2021/psets/7/movies"
+    }
+  },
+  "fiftyville": {
+    "d": "2026",
+    "2026": {
+      "c": "2026/x/psets/7/fiftyville.zip",
+      "e": "x/2026/psets/7/fiftyville"
+    },
+    "2025": {
+      "c": "2024/fall/psets/7/fiftyville.zip",
+      "e": "x/2025/psets/7/fiftyville"
+    },
+    "2024": {
+      "c": "2023/fall/psets/7/fiftyville.zip",
+      "e": "x/2024/psets/7/fiftyville"
+    },
+    "2023": {
+      "c": "2022/fall/psets/7/fiftyville.zip",
+      "e": "x/2023/psets/7/fiftyville"
+    },
+    "2022": {
+      "c": "2021/fall/psets/7/fiftyville.zip",
+      "e": "x/2022/psets/7/fiftyville"
+    },
+    "2021": {
+      "c": "2020/fall/psets/7/fiftyville/fiftyville.zip",
+      "e": "x/2021/psets/7/fiftyville"
+    }
+  },
+  "trivia": {
+    "d": "2026",
+    "2026": {
+      "c": "2025/fall/psets/8/trivia.zip",
+      "e": "x/2026/psets/8/trivia"
+    },
+    "2025": {
+      "c": "2024/fall/psets/8/trivia.zip",
+      "e": "x/2025/psets/8/trivia"
+    },
+    "2024": {
+      "c": "2023/fall/psets/8/trivia.zip",
+      "e": "x/2024/psets/8/trivia"
+    }
+  },
+  "homepage": {
+    "d": "2026",
+    "2026": {
+      "c": "2026/x/psets/8/homepage.zip",
+      "e": "x/2026/psets/8/homepage"
+    },
+    "2025": {
+      "c": "2025/x/psets/8/homepage.zip",
+      "e": "x/2025/psets/8/homepage"
+    },
+    "2024": {
+      "c": "2023/fall/psets/8/homepage.zip",
+      "e": "x/2024/psets/8/homepage"
+    },
+    "2023": {
+      "c": "2022/fall/psets/8/homepage.zip",
+      "e": "x/2023/psets/8/homepage"
+    },
+    "2022": {
+      "c": "2021/fall/psets/8/homepage.zip",
+      "e": "x/2022/psets/8/homepage"
+    },
+    "2021": {
+      "c": [
+        "cd ~",
+        "mkdir pset8",
+        "cd pset8",
+        "2020/fall/psets/8/homepage/homepage.zip",
+        "unzip homepage.zip",
+        "rm homepage.zip",
+        "cd homepage",
+        "ls"
+      ],
+      "e": "x/2021/psets/8/homepage"
+    }
+  },
+  "birthdays": {
+    "d": "2026",
+    "2026": {
+      "c": "2026/x/psets/9/birthdays.zip",
+      "e": "x/2026/psets/9/birthdays"
+    },
+    "2025": {
+      "c": "2024/fall/psets/9/birthdays.zip",
+      "e": "x/2025/psets/9/birthdays"
+    },
+    "2024": {
+      "c": "2023/fall/psets/9/birthdays.zip",
+      "e": "x/2024/psets/9/birthdays"
+    }
+  },
+  "finance": {
+    "d": "2026",
+    "2026": {
+      "c": "2026/x/psets/9/finance.zip",
+      "e": "x/2026/psets/9/finance"
+    },
+    "2025": {
+      "c": "2024/fall/psets/9/finance.zip",
+      "e": "x/2025/psets/9/finance"
+    },
+    "2024": {
+      "c": "2024/x/psets/9/finance.zip",
+      "e": "x/2024/psets/9/finance"
+    },
+    "2023": {
+      "c": "2022/fall/psets/9/finance.zip",
+      "e": "x/2023/psets/9/finance"
+    },
+    "2022": {
+      "c": "2021/fall/psets/9/finance.zip",
+      "e": "x/2022/psets/9/finance"
+    }
+  },
+  "hello": {
+    "d": "2023",
+    "2023": {
+      "c": "2022/fall/psets/6/sentimental-hello.zip",
+      "e": "x/2023/psets/6/hello"
+    },
+    "2022": {
+      "c": "2021/fall/psets/6/sentimental-hello.zip",
+      "e": "x/2022/psets/6/hello"
+    }
+  },
+  "mario/less": {
+    "d": "2023",
+    "2023": {
+      "c": "2022/fall/psets/6/sentimental-mario-less.zip",
+      "e": "x/2023/psets/6/mario/less"
+    },
+    "2022": {
+      "c": "2021/fall/psets/6/sentimental-mario-less.zip",
+      "e": "x/2022/psets/6/mario/less"
+    }
+  },
+  "mario/more": {
+    "d": "2023",
+    "2023": {
+      "c": "2022/fall/psets/6/sentimental-mario-more.zip",
+      "e": "x/2023/psets/6/mario/more"
+    },
+    "2022": {
+      "c": "2021/fall/psets/6/sentimental-mario-more.zip",
+      "e": "x/2022/psets/6/mario/more"
+    }
+  },
+  "cash": {
+    "d": "2023",
+    "2023": {
+      "c": "2022/fall/psets/6/sentimental-cash.zip",
+      "e": "x/2023/psets/6/cash"
+    },
+    "2022": {
+      "c": "2021/fall/psets/6/sentimental-cash.zip",
+      "e": "x/2022/psets/6/cash"
+    }
+  },
+  "credit": {
+    "d": "2023",
+    "2023": {
+      "c": "2022/fall/psets/6/sentimental-credit.zip",
+      "e": "x/2023/psets/6/credit"
+    },
+    "2022": {
+      "c": "2021/fall/psets/6/sentimental-credit.zip",
+      "e": "x/2022/psets/6/credit"
+    }
+  },
+  "readability": {
+    "d": "2023",
+    "2023": {
+      "c": "2022/fall/psets/6/sentimental-readability.zip",
+      "e": "x/2023/psets/6/readability"
+    },
+    "2022": {
+      "c": "2021/fall/psets/6/sentimental-readability.zip",
+      "e": "x/2022/psets/6/readability"
+    }
+  },
+  "bulbs": {
+    "d": "2023",
+    "2023": {
+      "c": "2022/fall/psets/2/bulbs.zip",
+      "e": "x/2023/psets/2/bulbs"
+    }
+  },
+  "caesar": {
+    "d": "2023",
+    "2023": {
+      "c": "2022/fall/psets/2/caesar.zip",
+      "e": "x/2023/psets/2/caesar"
+    },
+    "2022": {
+      "c": "2021/fall/psets/2/caesar.zip",
+      "e": "x/2022/psets/2/caesar"
+    }
+  },
+  "substitution": {
+    "d": "2023",
+    "2023": {
+      "c": "2022/fall/psets/2/substitution.zip",
+      "e": "x/2023/psets/2/substitution"
+    },
+    "2022": {
+      "c": "2021/fall/psets/2/substitution.zip",
+      "e": "x/2022/psets/2/substitution"
+    }
+  },
+  "wordle50": {
+    "d": "2023",
+    "2023": {
+      "c": "2022/fall/psets/2/wordle.zip",
+      "e": "x/2023/psets/2/wordle50"
+    }
+  },
+  "reverse": {
+    "d": "2023",
+    "2023": {
+      "c": "2022/fall/psets/4/reverse.zip",
+      "e": "x/2023/psets/4/reverse"
+    }
+  },
+  "nim": {
+    "d": "2024",
+    "2024": {
+      "c": ["lst", "lst"],
+      "e": "ai/2024/projects/4/nim"
+    },
+    "2023": {
+      "c": ["lst", "lst"],
+      "e": "ai/2023/projects/4/nim"
+    },
+    "2020": {
+      "c": ["lst", "lst"],
+      "e": "ai/2020/projects/4/nim"
+    }
+  },
+  "indoor": {
+    "d": "2022",
+    "2022": {
+      "c": ["mkdir indoor", "cd indoor", "code indoor.py"],
+      "e": "python/2022/psets/0/indoor"
+    }
+  },
+  "playback": {
+    "d": "2022",
+    "2022": {
+      "c": ["mkdir playback", "cd playback", "code playback.py"],
+      "e": "python/2022/psets/0/playback"
+    }
+  },
+  "faces": {
+    "d": "2022",
+    "2022": {
+      "c": ["mkdir faces", "cd faces", "code faces.py"],
+      "e": "python/2022/psets/0/faces"
+    }
+  },
+  "einstein": {
+    "d": "2022",
+    "2022": {
+      "c": ["mkdir einstein", "cd einstein", "code einstein.py"],
+      "e": "python/2022/psets/0/einstein"
+    }
+  },
+  "tip": {
+    "d": "2022",
+    "2022": {
+      "c": ["mkdir tip", "cd tip", "code tip.py"],
+      "e": "python/2022/psets/0/tip"
+    }
+  },
+  "deep": {
+    "d": "2024",
+    "2022": {
+      "c": ["mkdir deep", "cd deep", "code deep.py"],
+      "e": "python/2022/psets/1/deep"
+    },
+    "2024": {
+      "c": "sql/2024/x/psets/6/deep.zip",
+      "e": "sql/2024/psets/6/deep"
+    }
+  },
+  "bank": {
+    "d": "2022",
+    "2022": {
+      "c": ["mkdir bank", "cd bank", "code bank.py"],
+      "e": "python/2022/psets/1/bank"
+    }
+  },
+  "extensions": {
+    "d": "2022",
+    "2022": {
+      "c": ["mkdir extensions", "cd extensions", "code extensions.py"],
+      "e": "python/2022/psets/1/extensions"
+    }
+  },
+  "interpreter": {
+    "d": "2022",
+    "2022": {
+      "c": ["mkdir interpreter", "cd interpreter", "code interpreter.py"],
+      "e": "python/2022/psets/1/interpreter"
+    }
+  },
+  "meal": {
+    "d": "2022",
+    "2022": {
+      "c": ["mkdir meal", "cd meal", "code meal.py"],
+      "e": "python/2022/psets/1/meal"
+    }
+  },
+  "camel": {
+    "d": "2022",
+    "2022": {
+      "c": ["mkdir camel", "cd camel", "code camel.py"],
+      "e": "python/2022/psets/2/camel"
+    }
+  },
+  "coke": {
+    "d": "2022",
+    "2022": {
+      "c": ["mkdir coke", "cd coke", "code coke.py"],
+      "e": "python/2022/psets/2/coke"
+    }
+  },
+  "twttr": {
+    "d": "2022",
+    "2022": {
+      "c": ["mkdir twttr", "cd twttr", "code twttr.py"],
+      "e": "python/2022/psets/2/twttr"
+    }
+  },
+  "plates": {
+    "d": "2022",
+    "2022": {
+      "c": ["mkdir plates", "cd plates", "code plates.py"],
+      "e": "python/2022/psets/2/plates"
+    }
+  },
+  "nutrition": {
+    "d": "2022",
+    "2022": {
+      "c": ["mkdir nutrition", "cd nutrition", "code nutrition.py"],
+      "e": "python/2022/psets/2/nutrition"
+    }
+  },
+  "fuel": {
+    "d": "2022",
+    "2022": {
+      "c": ["mkdir fuel", "cd fuel", "code fuel.py"],
+      "e": "python/2022/psets/3/fuel"
+    }
+  },
+  "taqueria": {
+    "d": "2022",
+    "2022": {
+      "c": ["mkdir taqueria", "cd taqueria", "code taqueria.py"],
+      "e": "python/2022/psets/3/taqueria"
+    }
+  },
+  "grocery": {
+    "d": "2022",
+    "2022": {
+      "c": ["mkdir grocery", "cd grocery", "code grocery.py"],
+      "e": "python/2022/psets/3/grocery"
+    }
+  },
+  "outdated": {
+    "d": "2022",
+    "2022": {
+      "c": ["mkdir outdated", "cd outdated", "code outdated.py"],
+      "e": "python/2022/psets/3/outdated"
+    }
+  },
+  "emojize": {
+    "d": "2022",
+    "2022": {
+      "c": ["mkdir emojize", "cd emojize", "code emojize.py"],
+      "e": "python/2022/psets/4/emojize"
+    }
+  },
+  "figlet": {
+    "d": "2022",
+    "2022": {
+      "c": ["mkdir figlet", "cd figlet", "code figlet.py"],
+      "e": "python/2022/psets/4/figlet"
+    }
+  },
+  "adieu": {
+    "d": "2022",
+    "2022": {
+      "c": ["mkdir adieu", "cd adieu", "code adieu.py"],
+      "e": "python/2022/psets/4/adieu"
+    }
+  },
+  "game": {
+    "d": "2022",
+    "2022": {
+      "c": ["mkdir game", "cd game", "code game.py"],
+      "e": "python/2022/psets/4/game"
+    }
+  },
+  "professor": {
+    "d": "2022",
+    "2022": {
+      "c": ["mkdir professor", "cd professor", "code professor.py"],
+      "e": "python/2022/psets/4/professor"
+    }
+  },
+  "bitcoin": {
+    "d": "2022",
+    "2022": {
+      "c": ["mkdir bitcoin", "cd bitcoin", "code bitcoin.py"],
+      "e": "python/2022/psets/4/bitcoin"
+    }
+  },
+  "test_twttr": {
+    "d": "2022",
+    "2022": {
+      "c": ["mkdir test_twttr", "cd test_twttr", "code test_twttr.py"],
+      "e": "python/2022/psets/5/test_twttr"
+    }
+  },
+  "test_bank": {
+    "d": "2022",
+    "2022": {
+      "c": ["mkdir test_bank", "cd test_bank", "code test_bank.py"],
+      "e": "python/2022/psets/5/test_bank"
+    }
+  },
+  "test_plates": {
+    "d": "2022",
+    "2022": {
+      "c": ["mkdir test_plates", "cd test_plates", "code test_plates.py"],
+      "e": "python/2022/psets/5/test_plates"
+    }
+  },
+  "test_fuel": {
+    "d": "2022",
+    "2022": {
+      "c": ["mkdir test_fuel", "cd test_fuel", "code test_fuel.py"],
+      "e": "python/2022/psets/5/test_fuel"
+    }
+  },
+  "lines": {
+    "d": "2022",
+    "2022": {
+      "c": ["lstrip", "mkdir lines", "cd lines", "code lines.py"],
+      "e": "python/2022/psets/6/lines"
+    }
+  },
+  "pizza": {
+    "d": "2022",
+    "2022": {
+      "c": [
+        "mkdir pizza",
+        "cd pizza",
+        "code pizza.py",
+        "wget https://cs50.harvard.edu/python/2022/psets/6/pizza/sicilian.csv",
+        "wget https://cs50.harvard.edu/python/2022/psets/6/pizza/regular.csv"
+      ],
+      "e": "python/2022/psets/6/pizza"
+    }
+  },
+  "scourgify": {
+    "d": "2022",
+    "2022": {
+      "c": [
+        "mkdir scourgify",
+        "cd scourgify",
+        "code scourgify.py",
+        "wget https://cs50.harvard.edu/python/2022/psets/6/scourgify/before.csv"
+      ],
+      "e": "python/2022/psets/6/scourgify"
+    }
+  },
+  "shirt": {
+    "d": "2022",
+    "2022": {
+      "c": [
+        "code shirt.png",
+        "mkdir shirt",
+        "cd shirt",
+        "code shirt.py",
+        "wget https://cs50.harvard.edu/python/2022/psets/6/shirt/shirt.png",
+        "wget https://cs50.harvard.edu/python/2022/psets/6/shirt/muppets.zip",
+        "unzip muppets.zip",
+        "unzip muppets.zip"
+      ],
+      "e": "python/2022/psets/6/shirt"
+    }
+  },
+  "numb3rs": {
+    "d": "2022",
+    "2022": {
+      "c": [
+        "mkdir numb3rs",
+        "cd numb3rs",
+        "code numb3rs.py",
+        "code test_numb3rs.py"
+      ],
+      "e": "python/2022/psets/7/numb3rs"
+    }
+  },
+  "watch": {
+    "d": "2022",
+    "2022": {
+      "c": ["mkdir watch", "cd watch", "code watch.py"],
+      "e": "python/2022/psets/7/watch"
+    }
+  },
+  "working": {
+    "d": "2022",
+    "2022": {
+      "c": [
+        "mkdir working",
+        "cd working",
+        "code working.py",
+        "code test_working.py"
+      ],
+      "e": "python/2022/psets/7/working"
+    }
+  },
+  "um": {
+    "d": "2022",
+    "2022": {
+      "c": ["mkdir um", "cd um", "code um.py", "code test_um.py"],
+      "e": "python/2022/psets/7/um"
+    }
+  },
+  "response": {
+    "d": "2022",
+    "2022": {
+      "c": ["mkdir response", "cd response", "code response.py"],
+      "e": "python/2022/psets/7/response"
+    }
+  },
+  "seasons": {
+    "d": "2022",
+    "2022": {
+      "c": [
+        "mkdir seasons",
+        "cd seasons",
+        "code seasons.py",
+        "code test_seasons.py"
+      ],
+      "e": "python/2022/psets/8/seasons"
+    }
+  },
+  "jar": {
+    "d": "2022",
+    "2022": {
+      "c": ["mkdir jar", "cd jar", "code jar.py", "code test_jar.py"],
+      "e": "python/2022/psets/8/jar"
+    }
+  },
+  "shirtificate": {
+    "d": "2022",
+    "2022": {
+      "c": [
+        "mkdir shirtificate",
+        "cd shirtificate",
+        "wget https://cs50.harvard.edu/python/2022/psets/8/shirtificate/shirtificate.png",
+        "code shirtificate.py"
+      ],
+      "e": "python/2022/psets/8/shirtificate"
+    }
+  },
+  "cyberchase": {
+    "d": "2024",
+    "2024": {
+      "c": "sql/2024/x/psets/0/cyberchase.zip",
+      "e": "sql/2024/psets/0/cyberchase"
+    },
+    "2023": {
+      "c": "sql/2023/x/psets/0/cyberchase.zip",
+      "e": "sql/2023/psets/0/cyberchase"
+    }
+  },
+  "views": {
+    "d": "2024",
+    "2024": {
+      "c": "sql/2024/x/psets/0/views.zip",
+      "e": "sql/2024/psets/0/views"
+    },
+    "2023": {
+      "c": "sql/2023/x/psets/0/views.zip",
+      "e": "sql/2023/psets/0/views"
+    }
+  },
+  "normals": {
+    "d": "2024",
+    "2024": {
+      "c": "sql/2024/x/psets/0/normals.zip",
+      "e": "sql/2024/psets/0/normals"
+    },
+    "2023": {
+      "c": "sql/2023/x/psets/0/normals.zip",
+      "e": "sql/2023/psets/0/normals"
+    }
+  },
+  "players": {
+    "d": "2024",
+    "2024": {
+      "c": "sql/2024/x/psets/0/players.zip",
+      "e": "sql/2024/psets/0/players"
+    },
+    "2023": {
+      "c": "sql/2023/x/psets/0/players.zip",
+      "e": "sql/2023/psets/0/players"
+    }
+  },
+  "packages": {
+    "d": "2024",
+    "2024": {
+      "c": "sql/2024/x/psets/1/packages.zip",
+      "e": "sql/2024/psets/1/packages"
+    },
+    "2023": {
+      "c": "sql/2023/x/psets/1/packages.zip",
+      "e": "sql/2023/psets/1/packages"
+    }
+  },
+  "dese": {
+    "d": "2024",
+    "2024": {
+      "c": "sql/2024/x/psets/1/dese.zip",
+      "e": "sql/2024/psets/1/dese"
+    },
+    "2023": {
+      "c": "sql/2023/x/psets/1/dese.zip",
+      "e": "sql/2023/psets/1/dese"
+    }
+  },
+  "moneyball": {
+    "d": "2024",
+    "2024": {
+      "c": "sql/2024/x/psets/1/moneyball.zip",
+      "e": "sql/2024/psets/1/moneyball"
+    },
+    "2023": {
+      "c": "sql/2023/x/psets/1/moneyball.zip",
+      "e": "sql/2023/psets/1/moneyball"
+    }
+  },
+  "atl": {
+    "d": "2024",
+    "2024": {
+      "c": ["mkdir atl", "cd atl", "code schema.sql"],
+      "e": "sql/2024/psets/2/atl"
+    },
+    "2023": {
+      "c": ["mkdir atl", "cd atl", "code schema.sql"],
+      "e": "sql/2023/psets/2/atl"
+    }
+  },
+  "dont-panic": {
+    "d": "2024",
+    "2024": {
+      "c": "sql/2024/x/psets/3/dont-panic.zip",
+      "e": "sql/2024/psets/3/dont-panic"
+    },
+    "2023": {
+      "c": "sql/2023/x/psets/3/dont-panic.zip",
+      "e": "sql/2023/psets/3/dont-panic"
+    }
+  },
+  "meteorites": {
+    "d": "2024",
+    "2024": {
+      "c": "sql/2024/x/psets/3/meteorites.zip",
+      "e": "sql/2024/psets/3/meteorites"
+    },
+    "2023": {
+      "c": "sql/2023/x/psets/3/meteorites.zip",
+      "e": "sql/2023/psets/3/meteorites"
+    }
+  },
+  "census": {
+    "d": "2024",
+    "2024": {
+      "c": "sql/2024/x/psets/4/census.zip",
+      "e": "sql/2024/psets/4/census"
+    },
+    "2023": {
+      "c": "sql/2023/x/psets/4/census.zip",
+      "e": "sql/2023/psets/4/census"
+    }
+  },
+  "private": {
+    "d": "2024",
+    "2024": {
+      "c": "sql/2024/x/psets/4/private.zip",
+      "e": "sql/2024/psets/4/private"
+    },
+    "2023": {
+      "c": "sql/2023/x/psets/4/private.zip",
+      "e": "sql/2023/psets/4/private"
+    }
+  },
+  "bnb": {
+    "d": "2024",
+    "2024": {
+      "c": "sql/2024/x/psets/4/bnb.zip",
+      "e": "sql/2024/psets/4/bnb"
+    },
+    "2023": {
+      "c": "sql/2023/x/psets/4/bnb.zip",
+      "e": "sql/2023/psets/4/bnb"
+    }
+  },
+  "snap": {
+    "d": "2024",
+    "2024": {
+      "c": "sql/2024/x/psets/5/snap.zip",
+      "e": "sql/2024/psets/5/snap"
+    }
+  },
+  "your.harvard": {
+    "d": "2024",
+    "2024": {
+      "c": "sql/2024/x/psets/5/harvard.zip",
+      "e": "sql/2024/psets/5/your.harvard"
+    },
+    "2023": {
+      "c": "sql/2023/x/psets/5/harvard.zip",
+      "e": "sql/2023/psets/5/your.harvard"
+    }
+  },
+  "dont-panic/python": {
+    "d": "2024",
+    "2024": {
+      "c": "sql/2024/x/psets/6/dont-panic-python.zip",
+      "e": "sql/2024/psets/6/dont-panic/python"
+    },
+    "2023": {
+      "c": "sql/2023/x/psets/6/dont-panic-python.zip",
+      "e": "sql/2023/psets/6/dont-panic/python"
+    }
+  },
+  "dont-panic/java": {
+    "d": "2024",
+    "2024": {
+      "c": "sql/2024/x/psets/6/dont-panic-java.zip",
+      "e": "sql/2024/psets/6/dont-panic/java"
+    },
+    "2023": {
+      "c": "sql/2023/x/psets/6/dont-panic-java.zip",
+      "e": "sql/2023/psets/6/dont-panic/java"
     }
   }
 }
