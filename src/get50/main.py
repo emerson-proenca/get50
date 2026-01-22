@@ -1,15 +1,10 @@
-import json
 from typing import Optional
 
 import typer
 
-from get50.utils import check_updates, environment, out, processes, show, validate
+from get50.utils import check_updates, environment, load, out, processes, show, validate
 
 app = typer.Typer(rich_markup_mode="rich")
-
-# Load JSON data
-with open("src/get50/data.json", "r") as f:
-    DATA = json.load(f)
 
 
 def run() -> None:
@@ -17,8 +12,8 @@ def run() -> None:
     check_updates()
     try:
         app()
-    except typer.BadParameter as e:
-        raise e
+    except (typer.Exit, SystemExit):
+        pass
     except Exception as e:
         out(str(e), type="ERROR")
 
@@ -50,6 +45,7 @@ def download(
         format (Optional[str]): The file extension to download. Defaults to '.zip'.
     """
     # Validate and get full metadata
+    DATA = load()
     meta = validate(course, week, file, year, season, type, format, data=DATA)
 
     # Check local environment

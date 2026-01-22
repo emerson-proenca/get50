@@ -78,7 +78,7 @@ def environment(problem: str) -> None:
 
 def processes(meta: dict[str, str]) -> None:
     BASE_URL = "https://cdn.cs50.net"
-    week_part = f"/{meta['week']}" if meta["type"] == "psetss" else ""
+    week_part = f"/{meta['week']}" if meta["type"] == "psets" else ""
 
     url = f"{BASE_URL}/{meta['course']}/{meta['year']}/{meta['season']}/{meta['type']}{week_part}/{meta['problem']}{meta['format']}"
     zip_file = f"{meta['problem']}{meta['format']}"
@@ -109,13 +109,6 @@ def show(problem: str) -> None:
 
 
 def out(message: str, type: Literal["SUCCESS", "WARNING", "ERROR"] = "SUCCESS") -> None:
-    """
-    Renders a consistent UI panel for system messages.
-
-    Args:
-        message (str): The core text to display.
-        type (str): The category of message (SUCCESS, WARNING, ERROR).
-    """
     # Configuration mapping for styles
     config: dict[str, dict[str, str]] = {
         "SUCCESS": {"color": "green", "title": "Success"},
@@ -142,7 +135,7 @@ def out(message: str, type: Literal["SUCCESS", "WARNING", "ERROR"] = "SUCCESS") 
 
 
 def suggest(typo: str, possibilities: list[str]) -> str:
-    """Returns a 'Perhaps you meant' string if a close match is found."""
+    # Returns a 'Perhaps you meant' string if a close match is found.
     N = 1
     CUTOFF = 0.6
     matches = difflib.get_close_matches(typo, possibilities, n=N, cutoff=CUTOFF)
@@ -198,3 +191,17 @@ def check_updates():
 
     except (PackageNotFoundError, Exception):
         pass
+
+
+def load(file: str = "data.json") -> dict:
+    BASE_DIR = Path(__file__).resolve().parent
+    DATA_PATH = BASE_DIR / file
+    if not DATA_PATH.exists():
+        out(
+            f"The file [bold red]{file}[/bold red] was not found at {DATA_PATH}",
+            type="ERROR",
+        )
+        raise typer.Exit(1)
+
+    with open(DATA_PATH, "r") as f:
+        return json.load(f)
