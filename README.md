@@ -1,14 +1,12 @@
-# ez50 🚀
+# ez50 (CS50 made easy!)
 
 > CS50 made easy! Unofficial community tool and is **NOT** affiliated with Harvard University or CS50.
-
----
 
 ## Get Started in Seconds!
 
 Installation and use is simple! Just run in your terminal:
 
-```bash
+```console
 pip install ez50
 ez50 world
 ```
@@ -31,21 +29,21 @@ ez50 is a community-built tool that makes working with CS50 problem sets **EASY*
 **It's like an automation for the boring stuff!**
 
 > (Did you get it? Go here if you didn't: https://automatetheboringstuff.com/)
----
+
 
 ## Commands
 
-### 📥 Download a Problem Set
+### Download a Problem Set
 
-```bash
+```console
 ez50 world
 ```
 
 This downloads the problem set, sets up your folder, and gets everything ready to go!
 
-### ✅ Check Your Solution
+### Check Your Solution
 
-```bash
+```console
 ez50 check world
 # short version:
 ez50 c world
@@ -53,9 +51,9 @@ ez50 c world
 
 Runs the official `check50` tool to test your code.
 
-### 📤 Submit Your Solution
+### Submit Your Solution
 
-```bash
+```console
 ez50 submit world
 # short version:
 ez50 s world
@@ -69,7 +67,7 @@ Submits your problem set using the official `submit50` tool.
 
 All commands support the `--year` or `-y` option:
 
-```bash
+```console
 ez50 world --year 2024
 ez50 check world -y 2025
 ```
@@ -78,7 +76,7 @@ ez50 check world -y 2025
 
 Use `--dry-run` or `-dr` to see what commands will execute **without actually running** them:
 
-```bash
+```console
 ez50 world --dry-run
 ╭─ Info ─────────────────────────────────────────────╮
 │ Dry Run: The following commands WOULD be executed: │
@@ -99,7 +97,6 @@ Check out the full list of supported problems in the [data.json](https://github.
 
 > [*] We don't include CS50 for Lawyers, CS50 CyberSecurity and CS50 Scratch because you don't run those in cs50.dev (duh!)
 
----
 
 ## Features
 
@@ -107,7 +104,7 @@ Check out the full list of supported problems in the [data.json](https://github.
 
 * **Smart Suggestions** - Made a typo? ez50 suggests what you probably meant:
 
-```bash
+```console
 ez50 numbers
 ╭─ Error ───────────────────────────────────────────╮
 │ Problem 'numbers' not found.                      │
@@ -121,7 +118,6 @@ ez50 numbers
 
 * **No Hassle** - No configuration needed, just install and use
 
----
 
 ## Installation Troubleshooting
 
@@ -133,7 +129,7 @@ You might not have Python installed. Download it from [python.org](https://www.p
 
 Try adding `--user` to the installation:
 
-```bash
+```console
 pip install --user ez50
 ```
 
@@ -141,7 +137,7 @@ pip install --user ez50
 
 Make sure the installation completed without errors. Try:
 
-```bash
+```console
 python -m pip install ez50
 ```
 
