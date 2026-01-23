@@ -13,14 +13,7 @@ from ez50.utils import (
     validate,
 )
 
-app = typer.Typer(
-    rich_markup_mode="rich",
-    no_args_is_help=True,
-    help="CS50 made easy! Unofficial community tool and is NOT affiliated with Harvard University or CS50.",
-)
 
-
-@app.command(name="check")
 def check(
     problem: str,
     year: Optional[str] = typer.Option(
@@ -47,7 +40,6 @@ def check(
     _execute_shell_list([f"check50 {slug}"], dry_run)
 
 
-@app.command(name="submit")
 def submit(
     problem: str,
     year: Optional[str] = typer.Option(
@@ -75,7 +67,6 @@ def submit(
     _execute_shell_list([f"submit50 {slug}"], dry_run)
 
 
-@app.command()
 def download(
     problem: str = typer.Argument(help="Problem set name"),
     year: Optional[str] = typer.Option(
