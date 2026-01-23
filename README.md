@@ -6,14 +6,10 @@
 
 Installation and use is simple! Just run in your terminal:
 
-<div class="termy">
-
-```console
-$ pip install ez50
-$ ez50 world
+```bash
+pip install ez50
+ez50 world
 ```
-
-</div>
 
 Watch the _magic_ happen:
 
@@ -46,37 +42,29 @@ Watch the _magic_ happen:
 
 ### Download a Problem Set
 
-```console
-$ ez50 world
+```bash
+ez50 world
 ```
 
 This downloads the problem set, sets up your folder, and gets everything ready to go!
 
 ### Check Your Solution
 
-<div class="termy">
-
-```console
+```bash
 $ ez50 check world
 # short version:
 $ ez50 c world
 ```
 
-</div>
-
 Runs the official `check50` tool to test your code.
 
 ### Submit Your Solution
 
-<div class="termy">
-
-```console
-$ ez50 submit world
+```bash
+ez50 submit world
 # short version:
-$ ez50 s world
+ez50 s world
 ```
-
-</div>
 
 Submits your problem set using the official `submit50` tool.
 
@@ -86,14 +74,10 @@ Submits your problem set using the official `submit50` tool.
 
 All commands support the `--year` or `-y` option:
 
-<div class="termy">
-
-```console
-$ ez50 world --year 2024
-$ ez50 check world -y 2025
+```bash
+ez50 world --year 2024
+ez50 check world -y 2025
 ```
-
-</div>
 
 ### I don't trust you!
 
@@ -102,7 +86,7 @@ Use `--dry-run` or `-dr` to see what commands WOULD execute, without actually **
 <div class="termy">
 
 ```console
-ez50 world --dry-run
+$ ez50 world --dry-run
 ╭─ Info ─────────────────────────────────────────────╮
 │ Dry Run: The following commands WOULD be executed: │
 ╰────────────────────────────────────────────────────╯
@@ -123,7 +107,7 @@ ez50 world --dry-run
 <div class="termy">
 
 ```console
-ez50 numbers
+$ ez50 numbers
 ╭─ Error ───────────────────────────────────────────╮
 │ Problem 'numbers' not found.                      │
 │ Perhaps you meant 'numb3rs' instead of 'numbers'? │
@@ -149,25 +133,17 @@ You might not have Python installed. Download it from [python.org](https://www.p
 
 Try adding `--user` to the installation:
 
-<div class="termy">
-
-```console
+```bash
 pip install --user ez50
 ```
-
-</div>
 
 **Problem: `ez50: command not found`**
 
 Make sure the installation completed without errors. Try:
 
-<div class="termy">
-
-```console
+```bash
 python -m pip install ez50
 ```
-
-</div>
 
 ---
 
