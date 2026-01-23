@@ -1,15 +1,34 @@
 # ez50 (CS50 made easy!)
 
-> CS50 made easy! Unofficial community tool and is **NOT** affiliated with Harvard University or CS50.
+> Unofficial community tool and is **NOT** affiliated with Harvard University or CS50.
 
 ## Get Started in Seconds!
 
 Installation and use is simple! Just run in your terminal:
 
 ```console
+$ pip install ez50
+$ ez50 world
+```
+
+```bash
+$ pip install ez50
+$ ez50 world
+```
+
+
+```console
 pip install ez50
 ez50 world
 ```
+
+```bash
+pip install ez50
+ez50 world
+```
+
+
+
 
 Watch the _magic_ happen:
 
@@ -24,11 +43,15 @@ Watch the _magic_ happen:
 
 ## What is ez50?
 
-ez50 is a community-built tool that makes working with CS50 problem sets **EASY** (or ez). Instead of copying and pasting commands from Harvard's website, finding the right files, and extracting them manually, you just type one command and you're ready to code!
+**ez50** is a community tool that makes working with CS50 problem sets **EASY** (or ez). Instead of copying and pasting commands from harvard.edu, finding the right files, and extracting them manually, you just type one command and you're ready to code!
 
-**It's like an automation for the boring stuff!**
+### Key features:
 
-> (Did you get it? Go here if you didn't: https://automatetheboringstuff.com/)
+* **One-Command Setup** - Download and extract problem sets instantly
+* **Smart Suggestions** - Made a typo? **ez50** suggests what you probably meant
+* **Multiple Years** - Access different versions of the same problem set
+* **Auto-Updates** - The tool checks for updates automatically
+* **No Hassle** - No configuration needed, just install and use
 
 
 ## Commands
@@ -72,9 +95,9 @@ ez50 world --year 2024
 ez50 check world -y 2025
 ```
 
-### What if I don't trust you!
+### I don't trust you!
 
-Use `--dry-run` or `-dr` to see what commands will execute **without actually running** them:
+Use `--dry-run` or `-dr` to see what commands WOULD execute, without actually **running** them:
 
 ```console
 ez50 world --dry-run
@@ -89,20 +112,9 @@ ez50 world --dry-run
 ╰──────────────────╯
 ```
 
-### Problem Sets
+### I hate having to type...
 
-**ez50** supports all\* CS50 problem sets! This includes: **CS50x**, **CS50P**, **CS50WEB**, **CS50SQL**, **CS50AI**, **CS50R**
-
-Check out the full list of supported problems in the [data.json](https://github.com/emerson-proenca/ez50/blob/main/src/ez50/data.json) file.
-
-> [*] We don't include CS50 for Lawyers, CS50 CyberSecurity and CS50 Scratch because you don't run those in cs50.dev (duh!)
-
-
-## Features
-
-* **One-Command Setup** - Download and extract problem sets instantly
-
-* **Smart Suggestions** - Made a typo? ez50 suggests what you probably meant:
+**ez50** magically suggests what you _probably_ meant:
 
 ```console
 ez50 numbers
@@ -112,11 +124,14 @@ ez50 numbers
 ╰───────────────────────────────────────────────────╯
 ```
 
-* **Multiple Years** - Access different versions of the same problem set
 
-* **Auto-Updates** - The tool checks for updates automatically
+### It probably doesn't include my course...
 
-* **No Hassle** - No configuration needed, just install and use
+**ez50** supports "all" CS50 problem sets! This includes: **CS50x**, **CS50P**, **CS50WEB**, **CS50SQL**, **CS50AI**, **CS50R**
+
+Check out the full list of supported problems in the [data.json](https://github.com/emerson-proenca/ez50/blob/main/src/ez50/data.json) file.
+
+> "all": We don't include CS50 for Lawyers, CS50 CyberSecurity and CS50 Scratch because you don't do those in cs50.dev (duh!)
 
 
 ## Installation Troubleshooting
@@ -147,7 +162,7 @@ python -m pip install ez50
 
 This is an **unofficial, community-built tool**. It is **NOT** affiliated with, endorsed by, or associated with Harvard University or the CS50 course. It's made by Students for Students to save time on repetitive tasks.
 
-The official CS50 tools (check50, submit50) are still used under the hood, ez50 just makes them easier to use.
+The official CS50 tools (check50, submit50) are still used under the hood, **ez50** just makes them easier to use.
 
 ## Contributing
 
