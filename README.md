@@ -6,31 +6,18 @@
 
 Installation and use is simple! Just run in your terminal:
 
+<div class="termy">
+
 ```console
 $ pip install ez50
 $ ez50 world
 ```
 
-```bash
-$ pip install ez50
-$ ez50 world
-```
-
-
-```console
-pip install ez50
-ez50 world
-```
-
-```bash
-pip install ez50
-ez50 world
-```
-
-
-
+</div>
 
 Watch the _magic_ happen:
+
+<div class="termy">
 
 ```
 ╭─ Success ─────────╮
@@ -39,20 +26,21 @@ Watch the _magic_ happen:
 ╰───────────────────╯
 ```
 
+</div>
+
 ---
 
 ## What is ez50?
 
-**ez50** is a community tool that makes working with CS50 problem sets **EASY** (or ez). Instead of copying and pasting commands from harvard.edu, finding the right files, and extracting them manually, you just type one command and you're ready to code!
+**ez50** is a community tool that makes working with CS50 problem sets **EASY** (or ez). Instead of copying and pasting commands from harvard.edu, finding the right files, and extracting them manually, you just type one command and you're ready!
 
 ### Key features:
 
-* **One-Command Setup** - Download and extract problem sets instantly
-* **Smart Suggestions** - Made a typo? **ez50** suggests what you probably meant
-* **Multiple Years** - Access different versions of the same problem set
-* **Auto-Updates** - The tool checks for updates automatically
-* **No Hassle** - No configuration needed, just install and use
-
+- **One-Command Setup**: Download and extract problem sets instantly
+- **Smart Suggestions**: Made a typo? **ez50** suggests what you probably meant
+- **Multiple Years**: Access different versions of the same problem set
+- **Auto-Updates**: The tool checks for updates automatically
+- **No Hassle**: No configuration needed, just install and use
 
 ## Commands
 
@@ -66,21 +54,29 @@ This downloads the problem set, sets up your folder, and gets everything ready t
 
 ### Check Your Solution
 
+<div class="termy">
+
 ```console
-ez50 check world
+$ ez50 check world
 # short version:
-ez50 c world
+$ ez50 c world
 ```
+
+</div>
 
 Runs the official `check50` tool to test your code.
 
 ### Submit Your Solution
 
+<div class="termy">
+
 ```console
-ez50 submit world
+$ ez50 submit world
 # short version:
-ez50 s world
+$ ez50 s world
 ```
+
+</div>
 
 Submits your problem set using the official `submit50` tool.
 
@@ -90,14 +86,20 @@ Submits your problem set using the official `submit50` tool.
 
 All commands support the `--year` or `-y` option:
 
+<div class="termy">
+
 ```console
 ez50 world --year 2024
 ez50 check world -y 2025
 ```
 
+</div>
+
 ### I don't trust you!
 
 Use `--dry-run` or `-dr` to see what commands WOULD execute, without actually **running** them:
+
+<div class="termy">
 
 ```console
 ez50 world --dry-run
@@ -112,9 +114,13 @@ ez50 world --dry-run
 ╰──────────────────╯
 ```
 
+</div>
+
 ### I hate having to type...
 
 **ez50** magically suggests what you _probably_ meant:
+
+<div class="termy">
 
 ```console
 ez50 numbers
@@ -124,15 +130,14 @@ ez50 numbers
 ╰───────────────────────────────────────────────────╯
 ```
 
+</div>
 
 ### It probably doesn't include my course...
 
 **ez50** supports "all" CS50 problem sets! This includes: **CS50x**, **CS50P**, **CS50WEB**, **CS50SQL**, **CS50AI**, **CS50R**
-
 Check out the full list of supported problems in the [data.json](https://github.com/emerson-proenca/ez50/blob/main/src/ez50/data.json) file.
 
 > "all": We don't include CS50 for Lawyers, CS50 CyberSecurity and CS50 Scratch because you don't do those in cs50.dev (duh!)
-
 
 ## Installation Troubleshooting
 
@@ -144,17 +149,25 @@ You might not have Python installed. Download it from [python.org](https://www.p
 
 Try adding `--user` to the installation:
 
+<div class="termy">
+
 ```console
 pip install --user ez50
 ```
+
+</div>
 
 **Problem: `ez50: command not found`**
 
 Make sure the installation completed without errors. Try:
 
+<div class="termy">
+
 ```console
 python -m pip install ez50
 ```
+
+</div>
 
 ---
 
