@@ -16,7 +16,7 @@ from ez50.utils import (
 app = typer.Typer(
     rich_markup_mode="rich",
     no_args_is_help=True,
-    help="This is an unofficial community tool and is NOT affiliated with Harvard University or CS50.",
+    help="CS50 made easy! Unofficial community tool and is NOT affiliated with Harvard University or CS50.",
 )
 
 

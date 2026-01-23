@@ -68,7 +68,6 @@
     },
     "2021": {
       "c": [
-        "cd ~",
         "mkdir pset3",
         "cd pset3",
         "mkdir plurality",
@@ -182,13 +181,11 @@
     },
     "2021": {
       "c": [
-        "cd ~",
         "mkdir pset4",
         "cd pset4",
         "2020/fall/psets/4/filter/less/filter.zip",
         "unzip filter.zip",
         "rm filter.zip",
-
         "cd filter",
         "ls"
       ],
@@ -219,13 +216,11 @@
     },
     "2021": {
       "c": [
-        "cd ~",
         "mkdir pset4",
         "cd pset4",
         "2020/fall/psets/4/filter/more/filter.zip",
         "unzip filter.zip",
         "rm filter.zip",
-
         "cd filter",
         "ls"
       ],
@@ -304,7 +299,6 @@
         "2021/spring/psets/5/speller/speller.zip",
         "unzip speller.zip",
         "rm speller.zip",
-
         "cd speller",
         "ls"
       ],
@@ -377,13 +371,11 @@
     },
     "2021": {
       "c": [
-        "cd ~",
         "mkdir pset7",
         "cd pset7",
         "2020/fall/psets/7/movies/movies.zip",
         "unzip movies.zip",
         "rm movies.zip",
-
         "cd movies",
         "ls"
       ],
@@ -456,7 +448,6 @@
     },
     "2021": {
       "c": [
-        "cd ~",
         "mkdir pset8",
         "cd pset8",
         "2020/fall/psets/8/homepage/homepage.zip",

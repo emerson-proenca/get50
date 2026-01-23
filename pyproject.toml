@@ -1,7 +1,7 @@
 [project]
 name = "ez50"
-version = "0.1.0"
-description = "Unofficial CLI tool to Download Distribution Code for CS50 courses"
+version = "0.1.1"
+description = "CS50 made easy! Unofficial community tool and is NOT affiliated with Harvard University or CS50."
 readme = "README.md"
 requires-python = ">=3.9"
 dependencies = [
@@ -14,3 +14,6 @@ ez50 = "ez50.main:run"
 [build-system]
 requires = ["setuptools", "wheel"]
 build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]
