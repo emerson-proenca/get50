@@ -121,7 +121,7 @@ $ ez50 numbers
 **ez50** supports "all" CS50 problem sets! This includes: **CS50x**, **CS50P**, **CS50WEB**, **CS50SQL**, **CS50AI**, **CS50R**
 Check out the full list of supported problems in the [data.json](https://github.com/emerson-proenca/ez50/blob/main/src/ez50/data.json) file.
 
-> "all": We don't include CS50 for Lawyers, CS50 CyberSecurity and CS50 Scratch because you don't do those in cs50.dev (duh!)
+> "all": We don't include CS50: Law, CyberSecurity and Scratch. Because you don't do those in cs50.dev (duh!)
 
 ## Installation Troubleshooting
 
