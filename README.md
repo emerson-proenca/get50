@@ -70,7 +70,7 @@ Submits your problem set using the official `submit50` tool.
 
 ## Nice Features:
 
-### But I'm in a different year!
+### I'm in a different year!
 
 All commands support the `--year` or `-y` option:
 
@@ -81,7 +81,7 @@ ez50 check world -y 2025
 
 ### I don't trust you!
 
-Use `--dry-run` or `-dr` to see what commands WOULD execute, without actually **running** them:
+Use `--dry-run` or `-dr` to see what commands WOULD execute, without actually **executing** them:
 
 <div class="termy">
 
@@ -100,7 +100,15 @@ $ ez50 world --dry-run
 
 </div>
 
-### I hate having to type...
+### Does it include my course?
+
+**ez50** supports _all_ CS50 problem sets! This includes: **CS50x**, **CS50P**, **CS50WEB**, **CS50SQL**, **CS50AI** and **CS50R**
+
+Check out the full list of supported problems in the [data.json](https://github.com/emerson-proenca/ez50/blob/main/src/ez50/data.json) file.
+
+> _all_: We don't include CS50: Law, CyberSecurity and Scratch. Because those don't have problem sets.
+
+### What else?
 
 **ez50** magically suggests what you _probably_ meant:
 
@@ -115,13 +123,6 @@ $ ez50 numbers
 ```
 
 </div>
-
-### It probably doesn't include my course...
-
-**ez50** supports "all" CS50 problem sets! This includes: **CS50x**, **CS50P**, **CS50WEB**, **CS50SQL**, **CS50AI**, **CS50R**
-Check out the full list of supported problems in the [data.json](https://github.com/emerson-proenca/ez50/blob/main/src/ez50/data.json) file.
-
-> "all": We don't include CS50: Law, CyberSecurity and Scratch. Because you don't do those in cs50.dev (duh!)
 
 ## Installation Troubleshooting
 
