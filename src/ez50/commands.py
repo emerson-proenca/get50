@@ -19,12 +19,8 @@ app = typer.Typer(
     help="This is an unofficial community tool and is NOT affiliated with Harvard University or CS50.",
 )
 
-COMMANDS = {"check", "c", "submit", "s", "download"}
 
-
-@app.command(
-    name="check", rich_help_panel="Check a problem set solution using check50. Alias: c"
-)
+@app.command(name="check")
 def check(
     problem: str,
     year: Optional[str] = typer.Option(
@@ -35,7 +31,7 @@ def check(
     ),
 ) -> None:
     """
-    Check a problem set solution using check50. Alias for 'check.
+    Check a problem set solution using check50. Alias for 'check'.
 
     Args:
         problem (str): _description_
@@ -49,10 +45,7 @@ def check(
     _execute_shell_list([f"check50 {slug}"], dry_run=dry_run)
 
 
-@app.command(
-    name="submit",
-    rich_help_panel="Submit a problem set solution using submit50. Alias: s",
-)
+@app.command(name="submit")
 def submit(
     problem: str,
     year: Optional[str] = typer.Option(

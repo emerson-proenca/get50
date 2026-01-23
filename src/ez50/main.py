@@ -3,10 +3,7 @@ import sys
 import typer
 
 from ez50.commands import check, download, submit
-from ez50.utils import (
-    check_updates,
-    out,
-)
+from ez50.utils import check_updates, out
 
 app = typer.Typer(
     rich_markup_mode="rich",
