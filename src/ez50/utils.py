@@ -159,21 +159,19 @@ def resolve(key: str, target: dict, label: str, context: str = ""):
 
 def check_updates() -> None:
     # Check for updates to data.json and ez50 package
-    PACKAGE_NAME = "ez50"
-    BASE_DIR = Path(__file__).resolve().parent
-    LOCAL_DATA = BASE_DIR / "data.json"
     CACHE_FILE = Path.home() / ".ez50_update_check"
-
-    DATA_URL = (
-        "https://raw.githubusercontent.com/YOUR_USER/ez50/main/src/ez50/data.json"
-    )
-    PYPI_URL = f"https://pypi.org/pypi/{PACKAGE_NAME}/json"
-    ONE_DAY = 24 * 60 * 60
-    TIMEOUT = 3
+    ONE_DAY = 86400  # 24 * 60 * 60
 
     # Skip if checked recently
     if CACHE_FILE.exists() and (time.time() - CACHE_FILE.stat().st_mtime) < ONE_DAY:
         return
+
+    BASE_DIR = Path(__file__).resolve().parent
+    LOCAL_DATA = BASE_DIR / "data.json"
+    PACKAGE_NAME = "ez50"
+    DATA_URL = "https://github.com/emerson-proenca/ez50/ez50/main/src/ez50/data.json"
+    PYPI_URL = f"https://pypi.org/pypi/{PACKAGE_NAME}/json"
+    TIMEOUT = 3
 
     try:
         # Silent Data Update (GitHub)

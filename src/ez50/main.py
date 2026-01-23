@@ -31,9 +31,10 @@ def run() -> None:
 
 app.command(name="download")(download)
 app.command(name="check")(check)
-app.command(name="c")(check)
 app.command(name="submit")(submit)
-app.command(name="s")(submit)
+
+app.command(name="c", hidden=True)(check)
+app.command(name="s", hidden=True)(submit)
 
 if __name__ == "__main__":
     run()

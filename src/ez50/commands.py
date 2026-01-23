@@ -31,18 +31,20 @@ def check(
     ),
 ) -> None:
     """
-    Check a problem set solution using check50. Alias for 'check'.
+    [bold]Check[/bold] a solution using [bold]check50[/bold].
 
-    Args:
-        problem (str): _description_
-        year (Optional[str], optional): _description_. Defaults to typer.Option( None, "--year", "-y", help="Academic year to use" ).
-        dry_run (bool, optional): _description_. Defaults to typer.Option( False, "--dry-run", "-dr", help="Run without executing" ).
+    [bold]Args:[/bold]
+        [blue]problem[/blue]: Name or slug of the problem set.
+        [blue]year[/blue]: Targeted academic year.
+        [blue]dry_run[/blue]: Preview the command without running.
+
+    [italic]Consider starring:[/italic] [link=https://github.com/emerson-proenca/ez50]https://github.com/emerson-proenca/ez50[/link]
     """
     data = load()
     slug = get_cs50_slug(problem, data, year)
     if not dry_run:
         out(f"Running check50 for [bold]{problem}[/bold]...", type="WARNING")
-    _execute_shell_list([f"check50 {slug}"], dry_run=dry_run)
+    _execute_shell_list([f"check50 {slug}"], dry_run)
 
 
 @app.command(name="submit")
@@ -55,19 +57,22 @@ def submit(
         False, "--dry-run", "-dr", help="Run without executing"
     ),
 ) -> None:
-    """_summary_
+    """
+    [bold]Submit[/bold] a solution using [bold]submit50[/bold].
 
-    Args:
-        problem (str): _description_
-        year (Optional[str], optional): _description_. Defaults to typer.Option( None, "--year", "-y", help="Academic year to use" ).
-        dry_run (bool, optional): _description_. Defaults to typer.Option( False, "--dry-run", "-dr", help="Run without executing" ).
+    [bold]Args:[/bold]
+        [blue]problem[/blue]: Name or slug of the problem set.
+        [blue]year[/blue]: Targeted academic year.
+        [blue]dry_run[/blue]: Preview the command without running.
+
+    [italic]Consider starring:[/italic] [link=https://github.com/emerson-proenca/ez50]https://github.com/emerson-proenca/ez50[/link]
     """
     data = load()
     slug = get_cs50_slug(problem, data, year)
 
     if not dry_run:
         out(f"Submitting [bold]{problem}[/bold]...", type="WARNING")
-    _execute_shell_list([f"submit50 {slug}"], dry_run=dry_run)
+    _execute_shell_list([f"submit50 {slug}"], dry_run)
 
 
 @app.command()
@@ -80,22 +85,19 @@ def download(
         False, "--dry-run", "-dr", help="Run without executing"
     ),
 ) -> None:
-    """_summary_
-
-    Args:
-        problem (str, optional): _description_. Defaults to typer.Argument(help="Problem set name").
-        year (Optional[str], optional): _description_. Defaults to typer.Option( None, "--year", "-y", help="Academic year to use" ).
-        dry_run (bool, optional): _description_. Defaults to typer.Option( False, "--dry-run", "-dr", help="Run without executing" ).
     """
-    # Validate and get full metadata
+    [bold]Download[/bold] and extract a pset environment.
+
+    [bold]Args:[/bold]
+        [blue]problem[/blue]: Name of the pset to download.
+        [blue]year[/blue]: Targeted academic year.
+        [blue]dry_run[/blue]: Log actions without downloading.
+
+    [italic]Consider starring:[/italic] [link=https://github.com/emerson-proenca/ez50]https://github.com/emerson-proenca/ez50[/link]
+    """
     data = load()
     meta = validate(problem, year, data=data)
 
-    # Check local environment
     environment(problem)
-
-    # Run subprocesses
     processes(meta, dry_run=dry_run)
-
-    # Show result
     show(problem)
