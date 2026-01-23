@@ -1,15 +1,33 @@
 [project]
 name = "ez50"
-version = "0.1.1"
+version = "0.1.2"
 description = "CS50 made easy! Unofficial community tool and is NOT affiliated with Harvard University or CS50."
 readme = "README.md"
+authors = [
+    {name = "Emerson Proenca"}
+]
 requires-python = ">=3.9"
+# Keywords help with PyPI search visibility
+keywords = ["cs50", "harvard", "education", "cli", "automation"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Topic :: Education",
+    "Intended Audience :: Education",
+]
 dependencies = [
-    "typer[all]",
+    "typer[all]>=0.9.0",
+    "rich>=12.0.0",
 ]
 
 [project.scripts]
 ez50 = "ez50.main:run"
+
+[project.urls]
+Homepage = "https://github.com/emerson-proenca/ez50"
+Issues = "https://github.com/emerson-proenca/ez50/issues"
+Repository = "https://github.com/emerson-proenca/ez50.git"
 
 [build-system]
 requires = ["setuptools", "wheel"]
@@ -17,3 +35,6 @@ build-backend = "setuptools.build_meta"
 
 [tool.setuptools.packages.find]
 where = ["src"]
+
+[tool.setuptools.package-data]
+"*" = ["*.json"]
