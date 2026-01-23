@@ -19,7 +19,7 @@ Watch the _magic_ happen:
 
 <div class="termy">
 
-```
+```console
 ╭─ Success ─────────╮
 │ Everything setup! │
 │ Run: cd world     │
@@ -47,7 +47,7 @@ Watch the _magic_ happen:
 ### Download a Problem Set
 
 ```console
-ez50 world
+$ ez50 world
 ```
 
 This downloads the problem set, sets up your folder, and gets everything ready to go!
@@ -89,8 +89,8 @@ All commands support the `--year` or `-y` option:
 <div class="termy">
 
 ```console
-ez50 world --year 2024
-ez50 check world -y 2025
+$ ez50 world --year 2024
+$ ez50 check world -y 2025
 ```
 
 </div>
