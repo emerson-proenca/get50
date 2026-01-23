@@ -46,22 +46,30 @@ def processes(meta: dict, dry_run: bool = False) -> None:
         url = f"https://cdn.cs50.net/{commands}"
         filename = url.split("/")[-1]
         cmds = [f"wget {url}", f"unzip {filename}", f"rm {filename}"]
-    else:
+    # Case B: "c" is a List of Commands
+    elif isinstance(commands, list):
         cmds = commands
+    # Case C: Invalid Format
+    else:
+        out(
+            f"Invalid command format for problem [bold red]{meta['problem']}[/bold red].",
+            type="ERROR",
+        )
+        raise typer.Exit(code=1)
 
+    _execute_shell_list(cmds, dry_run=dry_run)
+
+
+def _execute_shell_list(commands: list[str], dry_run: bool = False) -> None:
     if dry_run:
         out(
             "[bold]Dry Run:[/bold] The following commands WOULD be executed:",
-            type="WARNING",
+            type="INFO",
         )
-        for cmd in cmds:
-            out(f"  [bold cyan]>[/bold cyan] {cmd}", type="WARNING")
+        for cmd in commands:
+            out(f"  [bold cyan]>[/bold cyan] {cmd}", type="INFO")
         return
 
-    _execute_shell_list(cmds)
-
-
-def _execute_shell_list(commands: list[str]) -> None:
     for cmd in commands:
         try:
             # Handle 'cd' manually because subprocess.run happens in a subshell
@@ -93,10 +101,13 @@ def show(problem: str) -> None:
     )
 
 
-def out(message: str, type: Literal["SUCCESS", "WARNING", "ERROR"] = "SUCCESS") -> None:
+def out(
+    message: str, type: Literal["SUCCESS", "INFO", "WARNING", "ERROR"] = "SUCCESS"
+) -> None:
     # Configuration mapping for styles
     config: dict[str, dict[str, str]] = {
         "SUCCESS": {"color": "green", "title": "Success"},
+        "INFO": {"color": "blue", "title": "Info"},
         "WARNING": {"color": "yellow", "title": "Warning"},
         "ERROR": {"color": "red", "title": "Error"},
     }
@@ -131,10 +142,10 @@ def suggest(typo: str, possibilities: list[str]) -> str:
 
 
 def resolve(key: str, target: dict, label: str, context: str = ""):
+    # Suggester handles the fuzzy matching
     if key in target:
         return target[key]
 
-    # Suggester handles the fuzzy matching
     possibilities = list(target.keys())
     suggestion = suggest(key, possibilities)
 
@@ -147,13 +158,14 @@ def resolve(key: str, target: dict, label: str, context: str = ""):
 
 
 def check_updates() -> None:
-    PACKAGE_NAME = "get50"
+    # Check for updates to data.json and ez50 package
+    PACKAGE_NAME = "ez50"
     BASE_DIR = Path(__file__).resolve().parent
     LOCAL_DATA = BASE_DIR / "data.json"
-    CACHE_FILE = Path.home() / ".get50_update_check"
+    CACHE_FILE = Path.home() / ".ez50_update_check"
 
     DATA_URL = (
-        "https://raw.githubusercontent.com/YOUR_USER/get50/main/src/get50/data.json"
+        "https://raw.githubusercontent.com/YOUR_USER/ez50/main/src/ez50/data.json"
     )
     PYPI_URL = f"https://pypi.org/pypi/{PACKAGE_NAME}/json"
     ONE_DAY = 24 * 60 * 60
@@ -202,11 +214,38 @@ def load(file: str = "data.json") -> dict:
         return json.load(f)
 
 
-def get_cs50_slug(problem_name: str, data: dict) -> str:
-    problem_data = validate(problem_name, None, data)
+def get_cs50_slug(problem_name: str, data: dict, year: str | None = None) -> str:
+    problem_data = validate(problem_name, year, data)
+    if not problem_data:
+        sugestion = suggest(problem_name, list(data.keys()))
+        out(
+            f"Problem [bold red]'{problem_name}'[/bold red] not found.{sugestion}",
+            type="ERROR",
+        )
+        raise typer.Exit(1)
     parts = problem_data["slug"].split("/")
-    course = parts[0]
-    year = parts[1]
-    name = parts[-1]
+    COURSE = parts[0]
+    YEAR = year or parts[1]
+    NAME = parts[-1]
 
-    return f"cs50/problems/{year}/{course}/{name}"
+    return f"cs50/problems/{YEAR}/{COURSE}/{NAME}"
+
+
+def verify_directory(problem: str):
+    """Checks if the user is inside the problem folder or if it exists."""
+    cwd = os.getcwd()
+    # Check if we are already in the folder
+    if os.path.basename(cwd) == problem:
+        return True
+
+    # Check if the folder exists in the current directory
+    if os.path.isdir(problem):
+        out(f"Stepping into directory: [bold]{problem}[/bold]", type="INFO")
+        os.chdir(problem)
+        return True
+
+    out(
+        f"You are not in the '{problem}' folder.\nPlease [bold cyan]'cd {problem}'[/bold cyan] first.",
+        type="ERROR",
+    )
+    raise typer.Exit(1)

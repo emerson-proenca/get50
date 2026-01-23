@@ -1,5 +1,5 @@
 [project]
-name = "get50"
+name = "ez50"
 version = "0.1.0"
 description = "Unofficial CLI tool to Download Distribution Code for CS50 courses"
 readme = "README.md"
@@ -9,7 +9,7 @@ dependencies = [
 ]
 
 [project.scripts]
-get50 = "get50.main:app"
+ez50 = "ez50.main:run"
 
 [build-system]
 requires = ["setuptools", "wheel"]
