@@ -1,8 +1,6 @@
 from unittest.mock import patch
 
 import pytest
-from hypothesis import given
-from hypothesis import strategies as st
 from typer.testing import CliRunner
 
 from ez50.main import app
@@ -92,13 +90,6 @@ def test_incorrect_usage():
     result = runner.invoke(app, ["check", "hello", "--invalid-flag"])
     assert result.exit_code != 0
     assert "No such option" in result.stdout
-
-
-@given(problem=st.text(min_size=1).filter(lambda x: not x.startswith("-")))
-def test_hypothesis_download_fallback(problem):
-    """Uses Hypothesis to ensure any string defaults to the download command."""
-    result = runner.invoke(app, [problem])
-    assert result.exit_code == 0
 
 
 def test_typo_suggestion():

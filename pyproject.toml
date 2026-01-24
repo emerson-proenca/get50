@@ -6,15 +6,16 @@ readme = "README.md"
 authors = [
     {name = "Emerson Proenca"}
 ]
-requires-python = ">=3.9"
+requires-python = ">=3.9.0"
 # Keywords help with PyPI search visibility
 keywords = ["cs50", "harvard", "education", "cli", "automation"]
 classifiers = [
-    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
     "License :: OSI Approved :: MIT License",
     "Operating System :: OS Independent",
     "Topic :: Education",
     "Intended Audience :: Education",
+    "Development Status :: 5 - Production/Stable"
 ]
 dependencies = [
     "typer[all]>=0.9.0",
