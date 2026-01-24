@@ -1,6 +1,6 @@
 [project]
 name = "ez50"
-version = "0.1.2"
+version = "0.1.3"
 description = "CS50 made easy! Unofficial community tool and is NOT affiliated with Harvard University or CS50."
 readme = "README.md"
 authors = [
