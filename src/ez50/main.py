@@ -46,10 +46,6 @@ def options(
 
     Unofficial community tool and is NOT affiliated with Harvard University or CS50.
     """
-    # Explaning this hack... This is triggered AFTER the run()
-    # During the `if args and args[0] not in COMMANDS and not args[0].startswith("-"):``
-    # Because no 'download' command was inserted, Typer falls back to the callback()
-    # This is how we are able to have both `ez50 hello` and `ez50 -v` work at the same time
     pass
 
 
