@@ -1,49 +1,45 @@
 [build-system]
-requires = ["setuptools", "wheel"]
 build-backend = "setuptools.build_meta"
+requires = [ "setuptools", "wheel" ]
 
 [project]
 name = "ez50"
 version = "0.1.4"
 description = "CS50 made easy! Unofficial community tool and is NOT affiliated with Harvard University or CS50."
 readme = "README.md"
+keywords = [ "automation", "cli", "cs50", "education", "harvard" ]
 license = { text = "MIT" }
-requires-python = ">=3.9"
 authors = [
-    { name = "Emerson Proenca", email = "emersonproenca0@gmail.com" }
+  { name = "Emerson Proenca", email = "emersonproenca0@gmail.com" },
 ]
-mainteners = [
-    { name = "Emerson Proenca", email = "emersonproenca0@gmail.com" }
-]
-keywords = ["automation", "cli", "cs50", "education", "harvard"]
+requires-python = ">=3.9"
 classifiers = [
-    "Development Status :: 5 - Production/Stable",
-    "Intended Audience :: Education",
-    "License :: OSI Approved :: MIT License",
-    "Operating System :: OS Independent",
-    "Programming Language :: Python :: 3 :: Only",
-    "Programming Language :: Python :: 3.9",
-    "Programming Language :: Python :: 3.10",
-    "Programming Language :: Python :: 3.11",
-    "Programming Language :: Python :: 3.12",
-    "Programming Language :: Python :: 3.13",
-    "Topic :: Education",
+  "Development Status :: 5 - Production/Stable",
+  "Intended Audience :: Education",
+  "License :: OSI Approved :: MIT License",
+  "Operating System :: OS Independent",
+  "Programming Language :: Python :: 3 :: Only",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+  "Programming Language :: Python :: 3.14",
+  "Topic :: Education",
 ]
 dependencies = [
-    "typer[all]>=0.9",
+  "typer[all]>=0.9",
 ]
 
-[project.urls]
-Homepage = "https://github.com/emerson-proenca/ez50"
-Repository = "https://github.com/emerson-proenca/ez50.git"
-Issues = "https://github.com/emerson-proenca/ez50/issues"
-Changelog = "https://github.com/emerson-proenca/ez50/releases"
+urls.Changelog = "https://github.com/emerson-proenca/ez50/releases"
+urls.Homepage = "https://github.com/emerson-proenca/ez50"
+urls.Issues = "https://github.com/emerson-proenca/ez50/issues"
+urls.Repository = "https://github.com/emerson-proenca/ez50.git"
+scripts.ez50 = "ez50.main:run"
 
-[project.scripts]
-ez50 = "ez50.main:run"
 
 [tool.setuptools.packages.find]
-where = ["src"]
+where = [ "src" ]
 
 [tool.setuptools.package-data]
-"*" = ["*.json"]
+"*" = [ "*.json" ]
