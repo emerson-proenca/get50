@@ -4,7 +4,7 @@ requires = [ "setuptools", "wheel" ]
 
 [project]
 name = "ez50"
-version = "0.1.4"
+version = "0.1.5"
 description = "CS50 made easy! Unofficial community tool and is NOT affiliated with Harvard University or CS50."
 readme = "README.md"
 keywords = [ "automation", "cli", "cs50", "education", "harvard" ]
