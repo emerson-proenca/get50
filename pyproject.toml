@@ -8,7 +8,6 @@ version = "0.1.4"
 description = "CS50 made easy! Unofficial community tool and is NOT affiliated with Harvard University or CS50."
 readme = "README.md"
 license = { text = "MIT" }
-license.file = "LICENSE"
 requires-python = ">=3.9"
 authors = [
     { name = "Emerson Proenca", email = "emersonproenca0@gmail.com" }
